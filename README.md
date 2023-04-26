@@ -14,6 +14,8 @@ ACE is a FEMU-based reliability measurement tool. Analog signals can be output u
 You must use <span style="color:red"> GUI </span> environment. This method was referred to FEMU github. <br>
 
 ```
+mkdir ./images
+
 cd ./ACE-Analog-Cell-Emulator/images
 
 wget https://releases.ubuntu.com/focal/ubuntu-20.04.6-live-server-amd64.iso
