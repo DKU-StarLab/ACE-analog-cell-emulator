@@ -6,6 +6,7 @@
 
 # image directory
 IMGDIR=./images
+
 # Virtual machine disk image
 OSIMGF=$IMGDIR/u20s.qcow2
 
