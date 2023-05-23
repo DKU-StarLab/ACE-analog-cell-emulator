@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.tcc": "c",
+        "vhost.h": "c",
+        "*.inc": "c",
+        "*.list": "c",
+        "*.idef": "c",
+        "list": "c",
+        "string_view": "c",
+        "type_traits": "c",
+        "*.def": "c"
+    }
+}

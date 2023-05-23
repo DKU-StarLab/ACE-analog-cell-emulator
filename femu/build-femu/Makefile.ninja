@@ -15,38 +15,6 @@ libcapstone.a.p/capstone_arch_X86_X86InstPrinterCommon.c.o \
 libcapstone.a.p/capstone_arch_X86_X86Mapping.c.o \
 libcapstone.a.p/capstone_arch_X86_X86Module.c.o \
 libcapstone.a \
-libslirp.a.p/slirp_src_arp_table.c.o \
-libslirp.a.p/slirp_src_bootp.c.o \
-libslirp.a.p/slirp_src_cksum.c.o \
-libslirp.a.p/slirp_src_dhcpv6.c.o \
-libslirp.a.p/slirp_src_dnssearch.c.o \
-libslirp.a.p/slirp_src_if.c.o \
-libslirp.a.p/slirp_src_ip6_icmp.c.o \
-libslirp.a.p/slirp_src_ip6_input.c.o \
-libslirp.a.p/slirp_src_ip6_output.c.o \
-libslirp.a.p/slirp_src_ip_icmp.c.o \
-libslirp.a.p/slirp_src_ip_input.c.o \
-libslirp.a.p/slirp_src_ip_output.c.o \
-libslirp.a.p/slirp_src_mbuf.c.o \
-libslirp.a.p/slirp_src_misc.c.o \
-libslirp.a.p/slirp_src_ncsi.c.o \
-libslirp.a.p/slirp_src_ndp_table.c.o \
-libslirp.a.p/slirp_src_sbuf.c.o \
-libslirp.a.p/slirp_src_slirp.c.o \
-libslirp.a.p/slirp_src_socket.c.o \
-libslirp.a.p/slirp_src_state.c.o \
-libslirp.a.p/slirp_src_stream.c.o \
-libslirp.a.p/slirp_src_tcp_input.c.o \
-libslirp.a.p/slirp_src_tcp_output.c.o \
-libslirp.a.p/slirp_src_tcp_subr.c.o \
-libslirp.a.p/slirp_src_tcp_timer.c.o \
-libslirp.a.p/slirp_src_tftp.c.o \
-libslirp.a.p/slirp_src_udp.c.o \
-libslirp.a.p/slirp_src_udp6.c.o \
-libslirp.a.p/slirp_src_util.c.o \
-libslirp.a.p/slirp_src_version.c.o \
-libslirp.a.p/slirp_src_vmstate.c.o \
-libslirp.a \
 qemu-version.h \
 qemu-options.def \
 qemu-img-cmds.h \
@@ -3083,107 +3051,106 @@ clean-ctlist \
 meson-clean \
 build.ninja \
 reconfigure \
-../hw/block/Kconfig \
-../hw/9pfs/Kconfig \
-../meson_options.txt \
-../hw/hppa/Kconfig \
-../target/openrisc/Kconfig \
-../hw/net/Kconfig \
-../hw/nios2/Kconfig \
-../configs/devices/x86_64-softmmu/default.mak \
-../hw/nubus/Kconfig \
-../target/xtensa/Kconfig \
-../target/microblaze/Kconfig \
-../VERSION \
-../hw/mips/Kconfig \
-../hw/alpha/Kconfig \
-../hw/pcmcia/Kconfig \
-../target/m68k/Kconfig \
+../hw/ssi/Kconfig \
+../hw/tricore/Kconfig \
 ../hw/rx/Kconfig \
-../target/s390x/Kconfig \
-../hw/isa/Kconfig \
-../semihosting/Kconfig \
-../hw/arm/Kconfig \
-../hw/sparc64/Kconfig \
+../hw/dma/Kconfig \
+../target/rx/Kconfig \
+../hw/pci-bridge/Kconfig \
+../hw/virtio/Kconfig \
+../hw/hyperv/Kconfig \
+../hw/ipmi/Kconfig \
+../hw/alpha/Kconfig \
 ../hw/gpio/Kconfig \
 ../hw/i386/Kconfig \
-../hw/i2c/Kconfig \
-../target/riscv/Kconfig \
-../hw/display/Kconfig \
+../Kconfig \
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/configs/targets/x86_64-softmmu.mak \
+../target/sh4/Kconfig \
+../target/openrisc/Kconfig \
 ../hw/char/Kconfig \
-../Kconfig.host \
-../target/i386/Kconfig \
+../hw/microblaze/Kconfig \
+../hw/scsi/Kconfig \
+../hw/openrisc/Kconfig \
+../hw/xtensa/Kconfig \
+../target/alpha/Kconfig \
+../subprojects/libvhost-user/meson.build \
+../backends/Kconfig \
+../hw/cris/Kconfig \
+../hw/ipack/Kconfig \
+../hw/tpm/Kconfig \
+../hw/isa/Kconfig \
+../hw/block/Kconfig \
+../meson.build \
+../hw/display/Kconfig \
 ../target/arm/Kconfig \
-../hw/avr/Kconfig \
-../hw/Kconfig \
+../target/m68k/Kconfig \
+../target/mips/Kconfig \
+../hw/hppa/Kconfig \
+../hw/sh4/Kconfig \
+../target/xtensa/Kconfig \
+../hw/audio/Kconfig \
+../hw/adc/Kconfig \
+../hw/nvram/Kconfig \
+../target/nios2/Kconfig \
+../hw/mips/Kconfig \
+../target/tricore/Kconfig \
+../Kconfig.host \
+../hw/i2c/Kconfig \
+../hw/ppc/Kconfig \
+../hw/input/Kconfig \
+../hw/s390x/Kconfig \
+../target/microblaze/Kconfig \
+../hw/rtc/Kconfig \
+../hw/mem/Kconfig \
 ../hw/watchdog/Kconfig \
+../target/Kconfig \
+../hw/timer/Kconfig \
+../meson_options.txt \
+../hw/net/Kconfig \
+../hw/remote/Kconfig \
 ../hw/misc/macio/Kconfig \
 ../hw/sensor/Kconfig \
-../configs/devices/i386-softmmu/default.mak \
-../hw/ide/Kconfig \
-../target/hppa/Kconfig \
-../hw/nvram/Kconfig \
-../hw/ppc/Kconfig \
-../hw/ssi/Kconfig \
-../Kconfig \
-../target/mips/Kconfig \
-../target/ppc/Kconfig \
-../hw/smbios/Kconfig \
-../hw/remote/Kconfig \
-../hw/tpm/Kconfig \
-../hw/pci-bridge/Kconfig \
-../target/rx/Kconfig \
-../accel/Kconfig \
-../backends/Kconfig \
-../target/alpha/Kconfig \
-../hw/ipmi/Kconfig \
 ../scripts/minikconf.py \
-../hw/ipack/Kconfig \
-../hw/nvme/Kconfig \
-../hw/sparc/Kconfig \
 ../target/sparc/Kconfig \
-../hw/m68k/Kconfig \
-../target/nios2/Kconfig \
-../hw/s390x/Kconfig \
-../hw/hyperv/Kconfig \
-../hw/input/Kconfig \
-../hw/vfio/Kconfig \
-../hw/core/Kconfig \
-../hw/pci-host/Kconfig \
-../hw/tricore/Kconfig \
-../hw/femu/Kconfig \
-../subprojects/libvhost-user/meson.build \
-../target/Kconfig \
-../hw/mem/Kconfig \
-../hw/misc/Kconfig \
-../hw/usb/Kconfig \
-../hw/xtensa/Kconfig \
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/configs/targets/x86_64-softmmu.mak \
-../hw/scsi/Kconfig \
-../hw/virtio/Kconfig \
-../hw/openrisc/Kconfig \
-../hw/sd/Kconfig \
-../hw/cris/Kconfig \
-../hw/pci/Kconfig \
-../hw/adc/Kconfig \
-../hw/microblaze/Kconfig \
+../hw/Kconfig \
 ../target/avr/Kconfig \
-../hw/audio/Kconfig \
-../target/tricore/Kconfig \
-../target/sh4/Kconfig \
-../backends/tpm/Kconfig \
-../hw/riscv/Kconfig \
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/config-host.mak \
-../hw/sh4/Kconfig \
-../meson.build \
-../hw/acpi/Kconfig \
-../hw/rdma/Kconfig \
-../hw/intc/Kconfig \
-../hw/dma/Kconfig \
-../hw/timer/Kconfig \
+../hw/ide/Kconfig \
+../hw/sparc64/Kconfig \
+../hw/pci/Kconfig \
 ../target/cris/Kconfig \
-../slirp/src/libslirp-version.h.in \
-../hw/rtc/Kconfig \
+../semihosting/Kconfig \
+../target/ppc/Kconfig \
+../hw/nios2/Kconfig \
+../hw/nubus/Kconfig \
+../hw/sparc/Kconfig \
+../hw/pci-host/Kconfig \
+../hw/core/Kconfig \
+../hw/sd/Kconfig \
+../configs/devices/i386-softmmu/default.mak \
+../hw/pcmcia/Kconfig \
+../hw/9pfs/Kconfig \
+../hw/arm/Kconfig \
+../hw/femu/Kconfig \
+../target/i386/Kconfig \
+../hw/intc/Kconfig \
+../hw/riscv/Kconfig \
+../hw/misc/Kconfig \
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/config-host.mak \
+../backends/tpm/Kconfig \
+../configs/devices/x86_64-softmmu/default.mak \
+../target/riscv/Kconfig \
+../hw/rdma/Kconfig \
+../hw/usb/Kconfig \
+../VERSION \
+../hw/avr/Kconfig \
+../target/hppa/Kconfig \
+../hw/m68k/Kconfig \
+../hw/vfio/Kconfig \
+../hw/acpi/Kconfig \
+../accel/Kconfig \
+../hw/smbios/Kconfig \
+../hw/nvme/Kconfig \
+../target/s390x/Kconfig \
 ../qapi/meson.build \
 ../qobject/meson.build \
 ../stubs/meson.build \
@@ -3383,107 +3350,106 @@ reconfigure \
 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/config-meson.cross \
 meson-private/coredata.dat
 build-files = \
-    ../hw/block/Kconfig \
-    ../hw/9pfs/Kconfig \
-    ../meson_options.txt \
-    ../hw/hppa/Kconfig \
-    ../target/openrisc/Kconfig \
-    ../hw/net/Kconfig \
-    ../hw/nios2/Kconfig \
-    ../configs/devices/x86_64-softmmu/default.mak \
-    ../hw/nubus/Kconfig \
-    ../target/xtensa/Kconfig \
-    ../target/microblaze/Kconfig \
-    ../VERSION \
-    ../hw/mips/Kconfig \
-    ../hw/alpha/Kconfig \
-    ../hw/pcmcia/Kconfig \
-    ../target/m68k/Kconfig \
+    ../hw/ssi/Kconfig \
+    ../hw/tricore/Kconfig \
     ../hw/rx/Kconfig \
-    ../target/s390x/Kconfig \
-    ../hw/isa/Kconfig \
-    ../semihosting/Kconfig \
-    ../hw/arm/Kconfig \
-    ../hw/sparc64/Kconfig \
+    ../hw/dma/Kconfig \
+    ../target/rx/Kconfig \
+    ../hw/pci-bridge/Kconfig \
+    ../hw/virtio/Kconfig \
+    ../hw/hyperv/Kconfig \
+    ../hw/ipmi/Kconfig \
+    ../hw/alpha/Kconfig \
     ../hw/gpio/Kconfig \
     ../hw/i386/Kconfig \
-    ../hw/i2c/Kconfig \
-    ../target/riscv/Kconfig \
-    ../hw/display/Kconfig \
+    ../Kconfig \
+    /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/configs/targets/x86_64-softmmu.mak \
+    ../target/sh4/Kconfig \
+    ../target/openrisc/Kconfig \
     ../hw/char/Kconfig \
-    ../Kconfig.host \
-    ../target/i386/Kconfig \
+    ../hw/microblaze/Kconfig \
+    ../hw/scsi/Kconfig \
+    ../hw/openrisc/Kconfig \
+    ../hw/xtensa/Kconfig \
+    ../target/alpha/Kconfig \
+    ../subprojects/libvhost-user/meson.build \
+    ../backends/Kconfig \
+    ../hw/cris/Kconfig \
+    ../hw/ipack/Kconfig \
+    ../hw/tpm/Kconfig \
+    ../hw/isa/Kconfig \
+    ../hw/block/Kconfig \
+    ../meson.build \
+    ../hw/display/Kconfig \
     ../target/arm/Kconfig \
-    ../hw/avr/Kconfig \
-    ../hw/Kconfig \
+    ../target/m68k/Kconfig \
+    ../target/mips/Kconfig \
+    ../hw/hppa/Kconfig \
+    ../hw/sh4/Kconfig \
+    ../target/xtensa/Kconfig \
+    ../hw/audio/Kconfig \
+    ../hw/adc/Kconfig \
+    ../hw/nvram/Kconfig \
+    ../target/nios2/Kconfig \
+    ../hw/mips/Kconfig \
+    ../target/tricore/Kconfig \
+    ../Kconfig.host \
+    ../hw/i2c/Kconfig \
+    ../hw/ppc/Kconfig \
+    ../hw/input/Kconfig \
+    ../hw/s390x/Kconfig \
+    ../target/microblaze/Kconfig \
+    ../hw/rtc/Kconfig \
+    ../hw/mem/Kconfig \
     ../hw/watchdog/Kconfig \
+    ../target/Kconfig \
+    ../hw/timer/Kconfig \
+    ../meson_options.txt \
+    ../hw/net/Kconfig \
+    ../hw/remote/Kconfig \
     ../hw/misc/macio/Kconfig \
     ../hw/sensor/Kconfig \
-    ../configs/devices/i386-softmmu/default.mak \
-    ../hw/ide/Kconfig \
-    ../target/hppa/Kconfig \
-    ../hw/nvram/Kconfig \
-    ../hw/ppc/Kconfig \
-    ../hw/ssi/Kconfig \
-    ../Kconfig \
-    ../target/mips/Kconfig \
-    ../target/ppc/Kconfig \
-    ../hw/smbios/Kconfig \
-    ../hw/remote/Kconfig \
-    ../hw/tpm/Kconfig \
-    ../hw/pci-bridge/Kconfig \
-    ../target/rx/Kconfig \
-    ../accel/Kconfig \
-    ../backends/Kconfig \
-    ../target/alpha/Kconfig \
-    ../hw/ipmi/Kconfig \
     ../scripts/minikconf.py \
-    ../hw/ipack/Kconfig \
-    ../hw/nvme/Kconfig \
-    ../hw/sparc/Kconfig \
     ../target/sparc/Kconfig \
-    ../hw/m68k/Kconfig \
-    ../target/nios2/Kconfig \
-    ../hw/s390x/Kconfig \
-    ../hw/hyperv/Kconfig \
-    ../hw/input/Kconfig \
-    ../hw/vfio/Kconfig \
-    ../hw/core/Kconfig \
-    ../hw/pci-host/Kconfig \
-    ../hw/tricore/Kconfig \
-    ../hw/femu/Kconfig \
-    ../subprojects/libvhost-user/meson.build \
-    ../target/Kconfig \
-    ../hw/mem/Kconfig \
-    ../hw/misc/Kconfig \
-    ../hw/usb/Kconfig \
-    ../hw/xtensa/Kconfig \
-    /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/configs/targets/x86_64-softmmu.mak \
-    ../hw/scsi/Kconfig \
-    ../hw/virtio/Kconfig \
-    ../hw/openrisc/Kconfig \
-    ../hw/sd/Kconfig \
-    ../hw/cris/Kconfig \
-    ../hw/pci/Kconfig \
-    ../hw/adc/Kconfig \
-    ../hw/microblaze/Kconfig \
+    ../hw/Kconfig \
     ../target/avr/Kconfig \
-    ../hw/audio/Kconfig \
-    ../target/tricore/Kconfig \
-    ../target/sh4/Kconfig \
-    ../backends/tpm/Kconfig \
-    ../hw/riscv/Kconfig \
-    /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/config-host.mak \
-    ../hw/sh4/Kconfig \
-    ../meson.build \
-    ../hw/acpi/Kconfig \
-    ../hw/rdma/Kconfig \
-    ../hw/intc/Kconfig \
-    ../hw/dma/Kconfig \
-    ../hw/timer/Kconfig \
+    ../hw/ide/Kconfig \
+    ../hw/sparc64/Kconfig \
+    ../hw/pci/Kconfig \
     ../target/cris/Kconfig \
-    ../slirp/src/libslirp-version.h.in \
-    ../hw/rtc/Kconfig \
+    ../semihosting/Kconfig \
+    ../target/ppc/Kconfig \
+    ../hw/nios2/Kconfig \
+    ../hw/nubus/Kconfig \
+    ../hw/sparc/Kconfig \
+    ../hw/pci-host/Kconfig \
+    ../hw/core/Kconfig \
+    ../hw/sd/Kconfig \
+    ../configs/devices/i386-softmmu/default.mak \
+    ../hw/pcmcia/Kconfig \
+    ../hw/9pfs/Kconfig \
+    ../hw/arm/Kconfig \
+    ../hw/femu/Kconfig \
+    ../target/i386/Kconfig \
+    ../hw/intc/Kconfig \
+    ../hw/riscv/Kconfig \
+    ../hw/misc/Kconfig \
+    /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/config-host.mak \
+    ../backends/tpm/Kconfig \
+    ../configs/devices/x86_64-softmmu/default.mak \
+    ../target/riscv/Kconfig \
+    ../hw/rdma/Kconfig \
+    ../hw/usb/Kconfig \
+    ../VERSION \
+    ../hw/avr/Kconfig \
+    ../target/hppa/Kconfig \
+    ../hw/m68k/Kconfig \
+    ../hw/vfio/Kconfig \
+    ../hw/acpi/Kconfig \
+    ../accel/Kconfig \
+    ../hw/smbios/Kconfig \
+    ../hw/nvme/Kconfig \
+    ../target/s390x/Kconfig \
     ../qapi/meson.build \
     ../qobject/meson.build \
     ../stubs/meson.build \

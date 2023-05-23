@@ -18,8 +18,8 @@ void init_TLC_state(struct state_bit* states);
 void init_MLC_state(struct state_bit* states);
 float set_c_location(float std, float mean);
 void read_retry(uint64_t* buf, float* voltage, struct state_bit* states, int retry_count,int ref);
-int TLC_nand_sec_error(uint64_t* buf, int PE_cnt, uint64_t retention_time, int read_cnt, float* wear_out, uint64_t idx_wear_out, struct state_bit* states,float* voltage);
-int MLC_nand_sec_error(uint64_t* buf, int PE_cnt, uint64_t retention_time, int read_cnt, float* wear_out, uint64_t idx_wear_out, struct state_bit* states,float* voltagea);
+int TLC_nand_sec_error(uint64_t* buf, int PE_cnt, uint64_t retention_time, int read_cnt, uint16_t* wear_out, uint64_t idx_wear_out, struct state_bit* states,float* voltage);
+int MLC_nand_sec_error(uint64_t* buf, int PE_cnt, uint64_t retention_time, int read_cnt, uint16_t* wear_out, uint64_t idx_wear_out, struct state_bit* states,float* voltagea);
 
 #define ace_err(fmt, ...) \
     do { fprintf(stderr, "[ACE] ACE-Err: " fmt, ## __VA_ARGS__); } while (0)

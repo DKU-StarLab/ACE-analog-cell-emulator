@@ -15,8 +15,12 @@ uint64_t total_rber=0;
 uint64_t sec_count=0;
 uint64_t tt_pg_cnt=0;
 uint64_t total_time=0;
-
+int t_err=0;
+int t_read=0;
+int t_retry=0;
 static void *ftl_thread(void *arg);
+static void *err_TLC_thread(void *arg);
+static void *err_MLC_thread(void *arg);
 
 static inline bool should_gc(struct ssd *ssd)
 {
@@ -258,8 +262,8 @@ static void ssd_init_params(struct ssdparams *spp)
     spp->secsz = 512;
     spp->secs_per_pg = 8;
     spp->pgs_per_blk = 256;
-    spp->blks_per_pl = 4; /* 256mb */
-    spp->pls_per_lun = 4;
+    spp->blks_per_pl = 4; /* 128mb */
+    spp->pls_per_lun = 2;
     spp->luns_per_ch = 4;
     spp->nchs = 4;
 
@@ -312,8 +316,8 @@ static void ssd_init_params(struct ssdparams *spp)
 }
 
 static void ssd_init_nand_sec(struct nand_sec *sec, struct ssdparams *spp){
-    for(int i=0; i<683; i++){
-       (sec->vd)[i] = set_c_location(spp->sd,spp->mean); 
+    for(int i=0; i < 2049; i++){
+       (sec->vd)[i] = (uint16_t)(100*set_c_location(spp->sd,spp->mean)); 
     }
     memset(sec->ecc,0,spp->oob_ecc_len);
     sec->check=0;
@@ -401,6 +405,7 @@ static void* allocate_ssd_nand(void *arg){
      ch->busy = 0;
      t++;
 
+    qemu_thread_exit(NULL);
     return NULL;
 }
 
@@ -882,36 +887,23 @@ static uint64_t ssd_read(struct ssd *ssd, NvmeRequest *req, FemuCtrl *n)
     struct nand_block *blk;
     struct nand_page *pg;
     struct nand_sec *sec;
-
-    // int temp=3000;
     uint8_t *buf;
- 
-
-    float voltage[2050];
+    QemuThread sec_thread[spp->secs_per_pg];
+    struct nand_err err_meta[spp->secs_per_pg];
     SsdDramBackend *b= n->mbe;
     void* mb = b->logical_space; 
     uint64_t* data_offset = &(req->data_offset);
     uint64_t mb_oft = data_offset[0];
-
-    int cycle=3000;
+    int cycle=0;
     uint64_t time=0;
     int read=0;
-
-    int retry_count=0;
-    int max_retry=5;
-    int ref=0;
-    int uber=0;
-    unsigned int errloc[spp->secsz];
     struct bch_control *bch;
-    
     uint64_t before_time;
     uint64_t after_time;
 
     qemu_set_log_filename(vol_f_path, &error_abort);
-    rcu_read_lock();
-    voltage_log = qatomic_rcu_read(&qemu_logfile);
+    voltage_log =qemu_logfile;
     g_assert(vol_f_path && voltage_log->fd);
-    rcu_read_unlock();
 
     if (end_lpn >= spp->tt_pgs) {
         ftl_err("start_lpn=%"PRIu64",tt_pgs=%d\n", start_lpn, ssd->sp.tt_pgs);
@@ -922,7 +914,7 @@ static uint64_t ssd_read(struct ssd *ssd, NvmeRequest *req, FemuCtrl *n)
         buf = (uint8_t *)(mb + mb_oft);
         ppa = get_maptbl_ent(ssd, lpn);
         if (!mapped_ppa(&ppa) || !valid_ppa(ssd, &ppa)) {
-            //printf("%s,lpn(%" PRId64 ") not mapped to valid ppa\n", ssd->ssdname, lpn);
+            //printf("%s,lpn(%" PRId64 ") not mapped to valid ppa\n", ssd->ssdname, pn);
             //printf("Invalid ppa,ch:%d,lun:%d,blk:%d,pl:%d,pg:%d,sec:%d\n",
             //ppa.g.ch, ppa.g.lun, ppa.g.blk, ppa.g.pl, ppa.g.pg, ppa.g.sec);
             continue;
@@ -933,71 +925,54 @@ static uint64_t ssd_read(struct ssd *ssd, NvmeRequest *req, FemuCtrl *n)
         blk->read_cnt++;
         bch = pg->bch;
         before_time = qemu_clock_get_ns(QEMU_CLOCK_REALTIME);
+        t_err=0;
+
         for(int j=0; j< spp->secs_per_pg; j++){
             sec = &(pg->sec[j]);
             if(sec->check == 1){
                 sec_count++; 
                 sec->after_buf = buf;
+                err_meta[j].buf=(uint64_t *)buf;
+                err_meta[j].PE_cnt=cycle;
+                err_meta[j].retention_time=time;
+                err_meta[j].read_cnt=read;
+                err_meta[j].wear_out=sec->vd;
+                err_meta[j].idx_wear_out=0;
+                err_meta[j].secsz=spp->secsz;
+                err_meta[j].ecc=sec->ecc;
+                err_meta[j].bch=bch;
         
                 #if MLC_ERROR 
-                total_rber = MLC_nand_sec_error((uint64_t *)buf,cycle,time,read,sec->vd,0,&pg->MLC_states,voltage);
-                fflush(voltage_log->fd);
+                err_meta[j].states=&pg->MLC_states;
+                qemu_thread_create(&sec_thread[j],"error trigger thread\n",err_MLC_thread,&err_meta[j],QEMU_THREAD_JOINABLE);
+
                 #elif TLC_ERROR 
-                total_rber = TLC_nand_sec_error((uint64_t *)buf,cycle,time,read,sec->vd,0,&pg->TLC_states,voltage);
-                // fflush(voltage_log->fd);
+                err_meta[j].states=&pg->TLC_states;
+                qemu_thread_create(&sec_thread[j],"error trigger thread\n",err_TLC_thread,&err_meta[j],QEMU_THREAD_JOINABLE);
                 #endif
-
-                    #if UBER_CHK
-                    uber = decode_bch(bch,buf,spp->secsz,sec->ecc,NULL,NULL,errloc);
-                    if(uber == -EBADMSG){
-                        ref=0;
-                        while((uber == -EBADMSG)){
-                            retry_count++;
-                            read_retry((uint64_t *)buf,voltage,&pg->TLC_states,retry_count,ref);
-                            uber = decode_bch(bch,buf,spp->secsz,sec->ecc,NULL,NULL,errloc);
-                            if(uber != -EBADMSG){
-                                total_read_uber += uber;
-                                break;
-                            }
-                            if((retry_count == max_retry)){
-                                if(ref==3)
-                                    break;
-
-                                ref+=1;
-                                retry_count = 0;
-                            }
-                        }
-                        ref = 0;
-                        retry_count = 0;
-                        if(uber == -EBADMSG){
-                            //femu_err("nand flash error\n");
-                        }
-                    }
-                    else{
-                        total_ecc_uber += uber; 
-                    } 
-                #endif
-
                 sec->check=0;
             }
-
-            #if VOL_CHK
-                fflush(error_log->fd);
-            #endif
-
-            rcu_read_lock();
-            qemu_set_log_filename(error_f_path, &error_abort);
-            error_log = qatomic_rcu_read(&qemu_logfile);
-            g_assert(error_f_path && error_log->fd);
-            rcu_read_unlock();
-            fprintf(error_log->fd,"sec: %ld rber: %ld ecc_uber: %ld read_uber: %ld\n",sec_count,total_rber,total_ecc_uber,total_read_uber);
-            fflush(error_log->fd);
+            else{t_err+=1;}
 
             buf+=512;
         }        
-        mb_oft += 4096;
+
+        while(t_err<7){usleep(1);}
+        t_err=0;
         after_time = qemu_clock_get_ns(QEMU_CLOCK_REALTIME);
         total_time +=(after_time-before_time);
+
+        #if UBER_CHK
+        rcu_read_lock();
+        qemu_set_log_filename(error_f_path, &error_abort);
+        error_log = qemu_logfile;
+        g_assert(error_f_path && error_log->fd);
+        fprintf(error_log->fd,"sec: %ld rber: %ld ecc_uber: %ld read_uber: %ld read: %d retry: %d\n",sec_count,total_rber,total_ecc_uber,total_read_uber,t_read,t_retry);
+        fflush(error_log->fd);
+        rcu_read_unlock();
+        #endif
+
+        mb_oft += 4096;
     
         struct nand_cmd srd;
         srd.type = USER_IO;
@@ -1006,7 +981,7 @@ static uint64_t ssd_read(struct ssd *ssd, NvmeRequest *req, FemuCtrl *n)
         sublat = ssd_advance_status(ssd, &ppa, &srd);
         maxlat = (sublat > maxlat) ? sublat : maxlat;
     }
-
+    // printf("pg: %ld time: %ld\n",sec_count/6,total_time);
     return maxlat;
 }
 
@@ -1069,10 +1044,7 @@ static uint64_t ssd_write(struct ssd *ssd, NvmeRequest *req, FemuCtrl *n)
             sec = &pg->sec[i];
             sec->before_buf = buf;
             sec->check=1;
-            #if 1 
             encode_bch(bch, buf, spp->secsz, sec->ecc);
-            #endif
-          
             buf+=512;
         }
 
@@ -1154,3 +1126,102 @@ static void *ftl_thread(void *arg)
     return NULL;
 }
 
+static void *err_TLC_thread(void *arg)
+{
+    struct nand_err* meta_data = (struct nand_err*) arg;
+    unsigned int errloc[meta_data->secsz];
+    int retry_count=1;
+    int max_retry=3;
+    int ref=0;
+    int uber=0;
+    
+    rcu_read_lock(); 
+    total_rber=TLC_nand_sec_error(meta_data->buf,meta_data->PE_cnt,meta_data->retention_time,meta_data->read_cnt,meta_data->wear_out,meta_data->idx_wear_out,meta_data->states,meta_data->voltage); 
+    t_read+=1;
+    #if UBER_CHK
+        uber = decode_bch(meta_data->bch,(uint8_t* )(meta_data->buf),meta_data->secsz,meta_data->ecc,NULL,NULL,errloc);
+        if(uber == -EBADMSG){
+            while((uber == -EBADMSG) && retry_count <= max_retry){
+                t_retry+=1;
+                retry_count+=1;
+                read_retry((uint64_t *)meta_data->buf,meta_data->voltage,meta_data->states,retry_count,ref);
+                uber = decode_bch(meta_data->bch,(uint8_t* )(meta_data->buf),meta_data->secsz,meta_data->ecc,NULL,NULL,errloc);
+                if(uber != -EBADMSG){
+                    total_read_uber += uber;
+                    break;
+                }
+                if((retry_count == max_retry)){
+                    if(ref==1){
+                        break;
+                    }
+                    ref+=1;
+                    retry_count = 1;
+                }
+            }
+            ref = 0;
+            retry_count = 0;
+            if(uber == -EBADMSG){
+                //femu_err("nand flash error\n");
+            }
+        }
+        else{
+            total_ecc_uber += uber; 
+        } 
+    #endif 
+    // rcu_read_lock(); 
+    t_err++;
+    rcu_read_unlock();
+    qemu_thread_exit(NULL);
+
+    return NULL;
+}
+
+static void *err_MLC_thread(void *arg)
+{
+    struct nand_err* meta_data = (struct nand_err*) arg;
+    unsigned int errloc[meta_data->secsz];
+    int retry_count=0;
+    int max_retry=0;
+    int ref=0;
+    int uber=0;
+
+    rcu_read_lock();
+    total_rber=MLC_nand_sec_error(meta_data->buf,meta_data->PE_cnt,meta_data->retention_time,meta_data->read_cnt,meta_data->wear_out,meta_data->idx_wear_out,meta_data->states,meta_data->voltage); 
+
+     #if UBER_CHK
+        uber = decode_bch(meta_data->bch,(uint8_t* )(meta_data->buf),meta_data->secsz,meta_data->ecc,NULL,NULL,errloc);
+        if(uber == -EBADMSG){
+            ref=0;
+            while((uber == -EBADMSG)){
+                retry_count++;
+                read_retry((uint64_t *)meta_data->buf,meta_data->voltage,meta_data->states,retry_count,ref);
+                uber = decode_bch(meta_data->bch,(uint8_t* )(meta_data->buf),meta_data->secsz,meta_data->ecc,NULL,NULL,errloc);
+                if(uber != -EBADMSG){
+                    total_read_uber += uber;
+                    break;
+                }
+                if((retry_count == max_retry)){
+                    if(ref==3)
+                        break;
+
+                    ref+=1;
+                    retry_count = 0;
+                }
+            }
+            ref = 0;
+            retry_count = 0;
+            if(uber == -EBADMSG){
+                //femu_err("nand flash error\n");
+            }
+        }
+        else{
+            total_ecc_uber += uber; 
+        } 
+    #endif
+
+    // rcu_read_lock();
+    t_err++;
+    rcu_read_unlock();
+
+    return NULL;
+}

@@ -5,12 +5,12 @@
 # Run FEMU as a black-box SSD (FTL managed by the device)
 
 # image directory
-IMGDIR=./images
+IMGDIR=~/images/blk
 # Virtual machine disk image
 OSIMGF=$IMGDIR/u20s.qcow2
 
-rm -f ./logging/ace_error.log
-rm -f ./logging/ace_voltage.log
+rm -rf ./logging
+mkdir ./logging
 
 if [[ ! -e "$OSIMGF" ]]; then
 	echo ""
@@ -25,12 +25,12 @@ sudo ./femu/build-femu/x86_64-softmmu/qemu-system-x86_64 \
     -name "FEMU-BBSSD-VM" \
     -enable-kvm \
     -cpu host \
-    -smp 5 \
-    -m 4G \
+    -smp 6 \
+    -m 24G \
     -device virtio-scsi-pci,id=scsi0 \
     -device scsi-hd,drive=hd0 \
     -drive file=$OSIMGF,if=none,aio=native,cache=none,format=qcow2,id=hd0 \
-    -device femu,devsz_mb=256,femu_mode=1 \
+    -device femu,devsz_mb=128,femu_mode=1 \
     -net user,hostfwd=tcp::8080-:22 \
     -net nic,model=virtio \
     -nographic \

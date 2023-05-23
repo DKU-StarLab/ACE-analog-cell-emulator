@@ -48,7 +48,7 @@
 #define MLC_ERROR 0
 #define TLC_ERROR 1
 
-#define UBER_CHK 0
+#define UBER_CHK 1
 #define VOL_CHK 0
 
 typedef struct NvmeBar {

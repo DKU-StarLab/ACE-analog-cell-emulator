@@ -69,12 +69,27 @@ struct ppa {
     };
 };
 
+struct nand_err{
+    uint64_t* buf;
+    int PE_cnt;
+    uint64_t retention_time;
+    int read_cnt;
+    uint16_t* wear_out;
+    uint64_t idx_wear_out;
+    struct state_bit *states;
+    int secsz;
+    uint8_t* ecc;
+    struct bch_control *bch;
+    float voltage[2050];
+};
+
+
 struct nand_sec{
-    float vd[683];
-    uint8_t ecc[7];
-   bool check;
+   uint16_t vd[2049];
+   uint8_t ecc[7];
    uint8_t *before_buf;
    uint8_t *after_buf;
+   bool check;
 };
 
 struct nand_page {

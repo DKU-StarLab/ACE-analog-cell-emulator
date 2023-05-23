@@ -1,4 +1,4 @@
-Build started at 2023-04-20T14:43:47.738753
+Build started at 2023-05-17T14:41:35.080017
 Main binary: /home/lee/anaconda3/bin/python3
 Build Options: -Daudio_drv_list=default -Ddefault_devices=true -Ddocdir=/usr/local/share/doc -Diasl= -Dqemu_firmwarepath=/usr/local/share/qemu-firmware -Dqemu_suffix=qemu -Dsmbd= -Dsphinx_build= -Dtrace_file=trace -Doptimization=2 -Ddebug=true -Dwerror=false -Db_pie=true -Db_coverage=false -Db_lto=false -Dcfi=false -Dtcg=enabled -Dxen=disabled -Dcapstone=auto -Dfdt=auto -Dslirp=auto -Dkvm=enabled -Dprefix=/usr/local -Dbindir=/usr/local/bin -Ddatadir=/usr/local/share -Dincludedir=/usr/local/include -Dlibdir=/usr/local/lib -Dlibexecdir=/usr/local/libexec -Dlocaledir=/usr/local/share/locale -Dlocalstatedir=/usr/local/var -Dmandir=/usr/local/share/man -Dsysconfdir=/usr/local/etc -Dbackend=ninja
 Python system: Linux
@@ -27,8 +27,8 @@ C++ compiler for the host machine: c++ -m64 -mcx16 (gcc 9.4.0 "c++ (Ubuntu 9.4.0
 C++ linker for the host machine: c++ -m64 -mcx16 ld.bfd 2.34
 Program cgcc found: NO
 Running compile:
-Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpk5u2w81g
-Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpk5u2w81g/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpk5u2w81g/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lm -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp51wvht7i
+Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp51wvht7i/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp51wvht7i/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lm -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(void) { return 0; }
@@ -40,8 +40,8 @@ Compiler stderr:
 Library m found: YES
 Dependency threads found: YES unknown (cached)
 Running compile:
-Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpj68gqzje
-Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpj68gqzje/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpj68gqzje/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lutil -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp3hupz9_6
+Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp3hupz9_6/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp3hupz9_6/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lutil -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(void) { return 0; }
@@ -72,8 +72,8 @@ Cached compiler stderr:
  
 Has header "libaio.h" : YES (cached)
 Running compile:
-Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp3ctealsg
-Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp3ctealsg/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp3ctealsg/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -laio -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpzsk8euvz
+Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpzsk8euvz/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpzsk8euvz/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -laio -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(void) { return 0; }
@@ -136,7 +136,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpkyhvxpe_/testfile.c:4:12: error: #error "Header 'cap-ng.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpky45j_dp/testfile.c:4:12: error: #error "Header 'cap-ng.h' could not be found"
     4 |           #error "Header 'cap-ng.h' could not be found"
       |            ^~~~~
 
@@ -157,7 +157,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmppit_9m6s/testfile.c:4:12: error: #error "Header 'libvdeplug.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpdytxda0l/testfile.c:4:12: error: #error "Header 'libvdeplug.h' could not be found"
     4 |           #error "Header 'libvdeplug.h' could not be found"
       |            ^~~~~
 
@@ -193,8 +193,8 @@ Called `/usr/bin/pkg-config --modversion spice-server` -> 1
 
 Run-time dependency spice-server found: NO (tried pkgconfig)
 Running compile:
-Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpb1ip9_9q
-Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpb1ip9_9q/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpb1ip9_9q/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lrt -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpwnoq6qjo
+Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpwnoq6qjo/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpwnoq6qjo/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lrt -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(void) { return 0; }
@@ -230,8 +230,8 @@ Called `/usr/bin/pkg-config --modversion libcurl` -> 1
 Run-time dependency libcurl found: NO (tried pkgconfig)
 Dependency libudev found: YES 245 (cached)
 Running compile:
-Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmprx2_878b
-Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmprx2_878b/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmprx2_878b/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lmpathpersist -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpzlym8idd
+Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpzlym8idd/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpzlym8idd/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lmpathpersist -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(void) { return 0; }
@@ -243,8 +243,8 @@ Compiler stderr:
 collect2: error: ld returned 1 exit status
 
 Running compile:
-Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpu_1thoyg
-Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpu_1thoyg/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpu_1thoyg/output.exe -D_FILE_OFFSET_BITS=64 -O0 
+Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpk_ssco9j
+Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpk_ssco9j/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpk_ssco9j/output.exe -D_FILE_OFFSET_BITS=64 -O0 
 
 Code:
  #include<stdio.h>
@@ -265,8 +265,8 @@ Program stderr:
 
 
 Running compile:
-Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpxy_ok5ko
-Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpxy_ok5ko/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpxy_ok5ko/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 --print-search-dirs 
+Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpyapob87e
+Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpyapob87e/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpyapob87e/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 --print-search-dirs 
 
 Code:
  
@@ -348,7 +348,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpzfj96pbl/testfile.c:4:12: error: #error "Header 'brlapi.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp42krsng6/testfile.c:4:12: error: #error "Header 'brlapi.h' could not be found"
     4 |           #error "Header 'brlapi.h' could not be found"
       |            ^~~~~
 
@@ -363,8 +363,8 @@ Trying a default sdl2-config fallback at sdl2-config
 sdl2-config found: NO
 Run-time dependency sdl2 found: NO (tried pkgconfig and config-tool)
 Running compile:
-Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpnrb4qh0e
-Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpnrb4qh0e/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpnrb4qh0e/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lrados -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpv7se9fab
+Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpv7se9fab/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpv7se9fab/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lrados -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(void) { return 0; }
@@ -391,7 +391,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpltdp5pcz/testfile.c:4:12: error: #error "Header 'rbd/librbd.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpkhpfgytw/testfile.c:4:12: error: #error "Header 'rbd/librbd.h' could not be found"
     4 |           #error "Header 'rbd/librbd.h' could not be found"
       |            ^~~~~
 
@@ -423,7 +423,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpmtw8ty7z/testfile.c:4:12: error: #error "Header 'bzlib.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp77dr01ng/testfile.c:4:12: error: #error "Header 'bzlib.h' could not be found"
     4 |           #error "Header 'bzlib.h' could not be found"
       |            ^~~~~
 
@@ -443,7 +443,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp23eqcrn7/testfile.c:4:12: error: #error "Header 'lzfse.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp5ds7axon/testfile.c:4:12: error: #error "Header 'lzfse.h' could not be found"
     4 |           #error "Header 'lzfse.h' could not be found"
       |            ^~~~~
 
@@ -522,7 +522,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpq5ay5age/testfile.c:4:12: error: #error "Header 'sasl/sasl.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp2l81lnos/testfile.c:4:12: error: #error "Header 'sasl/sasl.h' could not be found"
     4 |           #error "Header 'sasl/sasl.h' could not be found"
       |            ^~~~~
 
@@ -542,7 +542,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpgkw6rviy/testfile.c:4:12: error: #error "Header 'security/pam_appl.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpfourqgd7/testfile.c:4:12: error: #error "Header 'security/pam_appl.h' could not be found"
     4 |           #error "Header 'security/pam_appl.h' could not be found"
       |            ^~~~~
 
@@ -562,7 +562,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp87unwbth/testfile.c:4:12: error: #error "Header 'snappy-c.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpyheh2rr1/testfile.c:4:12: error: #error "Header 'snappy-c.h' could not be found"
     4 |           #error "Header 'snappy-c.h' could not be found"
       |            ^~~~~
 
@@ -582,7 +582,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp954zgyws/testfile.c:4:12: error: #error "Header 'lzo/lzo1x.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpb_71852l/testfile.c:4:12: error: #error "Header 'lzo/lzo1x.h' could not be found"
     4 |           #error "Header 'lzo/lzo1x.h' could not be found"
       |            ^~~~~
 
@@ -605,8 +605,8 @@ Cached compiler stderr:
  
 Has header "numa.h" : YES (cached)
 Running compile:
-Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpbixf_y89
-Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpbixf_y89/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpbixf_y89/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lnuma -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpew7c_ks1
+Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpew7c_ks1/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpew7c_ks1/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lnuma -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(void) { return 0; }
@@ -745,13 +745,13 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpkp0fau08/testfile.c: In function 'main':
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpkp0fau08/testfile.c:9:41: error: 'STATX_MNT_ID' undeclared (first use in this function); did you mean 'STATX_MTIME'?
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpz6ayyrj_/testfile.c: In function 'main':
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpz6ayyrj_/testfile.c:9:41: error: 'STATX_MNT_ID' undeclared (first use in this function); did you mean 'STATX_MTIME'?
     9 |     statx(0, "", 0, STATX_BASIC_STATS | STATX_MNT_ID, &statxbuf);
       |                                         ^~~~~~~~~~~~
       |                                         STATX_MTIME
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpkp0fau08/testfile.c:9:41: note: each undeclared identifier is reported only once for each function it appears in
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpkp0fau08/testfile.c:10:21: error: 'struct statx' has no member named 'stx_mnt_id'; did you mean 'stx_uid'?
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpz6ayyrj_/testfile.c:9:41: note: each undeclared identifier is reported only once for each function it appears in
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpz6ayyrj_/testfile.c:10:21: error: 'struct statx' has no member named 'stx_mnt_id'; did you mean 'stx_uid'?
    10 |     return statxbuf.stx_mnt_id;
       |                     ^~~~~~~~~~
       |                     stx_uid
@@ -817,7 +817,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpzyrpzg7g/testfile.c:4:12: error: #error "Header 'valgrind/valgrind.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpj0itmg2e/testfile.c:4:12: error: #error "Header 'valgrind/valgrind.h' could not be found"
     4 |           #error "Header 'valgrind/valgrind.h' could not be found"
       |            ^~~~~
 
@@ -854,7 +854,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpgqsrkx3q/testfile.c:4:12: error: #error "Header 'libdrm/drm.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmphyk1rhut/testfile.c:4:12: error: #error "Header 'libdrm/drm.h' could not be found"
     4 |           #error "Header 'libdrm/drm.h' could not be found"
       |            ^~~~~
 
@@ -891,7 +891,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpfmf0pijd/testfile.c:4:12: error: #error "Header 'sys/disk.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpfx9jqnnu/testfile.c:4:12: error: #error "Header 'sys/disk.h' could not be found"
     4 |           #error "Header 'sys/disk.h' could not be found"
       |            ^~~~~
 
@@ -911,7 +911,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp11gkvhh5/testfile.c:4:12: error: #error "Header 'sys/ioccom.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpaag62thh/testfile.c:4:12: error: #error "Header 'sys/ioccom.h' could not be found"
     4 |           #error "Header 'sys/ioccom.h' could not be found"
       |            ^~~~~
 
@@ -931,7 +931,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp4r4u_cub/testfile.c:4:12: error: #error "Header 'sys/kcov.h' could not be found"
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpvljv0s2f/testfile.c:4:12: error: #error "Header 'sys/kcov.h' could not be found"
     4 |           #error "Header 'sys/kcov.h' could not be found"
       |            ^~~~~
 
@@ -1117,7 +1117,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /usr/bin/ld: /tmp/ccD4Wrg6.o: in function `main':
+ /usr/bin/ld: /tmp/ccavPWAY.o: in function `main':
 testfile.c:(.text+0x9): undefined reference to `_aligned_malloc'
 collect2: error: ld returned 1 exit status
 
@@ -1151,12 +1151,12 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp89srpkag/testfile.c: In function 'main':
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp89srpkag/testfile.c:20:13: error: '__builtin__aligned_malloc' undeclared (first use in this function); did you mean '__builtin_aligned_alloc'?
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpupkwk_3f/testfile.c: In function 'main':
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpupkwk_3f/testfile.c:20:13: error: '__builtin__aligned_malloc' undeclared (first use in this function); did you mean '__builtin_aligned_alloc'?
    20 |             __builtin__aligned_malloc;
       |             ^~~~~~~~~~~~~~~~~~~~~~~~~
       |             __builtin_aligned_alloc
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp89srpkag/testfile.c:20:13: note: each undeclared identifier is reported only once for each function it appears in
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpupkwk_3f/testfile.c:20:13: note: each undeclared identifier is reported only once for each function it appears in
 
 Checking for function "_aligned_malloc" : NO (cached)
 Using cached compile:
@@ -1286,7 +1286,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /usr/bin/ld: /tmp/ccU6BAC9.o: in function `main':
+ /usr/bin/ld: /tmp/ccVebvX1.o: in function `main':
 testfile.c:(.text+0x9): undefined reference to `pthread_fchdir_np'
 collect2: error: ld returned 1 exit status
 
@@ -1320,12 +1320,12 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmplfwukcj3/testfile.c: In function 'main':
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmplfwukcj3/testfile.c:20:13: error: '__builtin_pthread_fchdir_np' undeclared (first use in this function); did you mean '__builtin_thread_pointer'?
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmphqgur1v1/testfile.c: In function 'main':
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmphqgur1v1/testfile.c:20:13: error: '__builtin_pthread_fchdir_np' undeclared (first use in this function); did you mean '__builtin_thread_pointer'?
    20 |             __builtin_pthread_fchdir_np;
       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
       |             __builtin_thread_pointer
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmplfwukcj3/testfile.c:20:13: note: each undeclared identifier is reported only once for each function it appears in
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmphqgur1v1/testfile.c:20:13: note: each undeclared identifier is reported only once for each function it appears in
 
 Checking for function "pthread_fchdir_np" : NO (cached)
 Using cached compile:
@@ -1864,7 +1864,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmphftllep9/testfile.c:1:10: fatal error: sys/endian.h: No such file or directory
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmppm4jf4q1/testfile.c:1:10: fatal error: sys/endian.h: No such file or directory
     1 | #include <sys/endian.h>
       |          ^~~~~~~~~~~~~~
 compilation terminated.
@@ -1940,11 +1940,11 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpedjmpkeb/testfile.c: In function 'main':
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpedjmpkeb/testfile.c:6:17: error: 'optreset' undeclared (first use in this function)
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpbe6bk2nf/testfile.c: In function 'main':
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpbe6bk2nf/testfile.c:6:17: error: 'optreset' undeclared (first use in this function)
     6 |                 optreset;
       |                 ^~~~~~~~
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpedjmpkeb/testfile.c:6:17: note: each undeclared identifier is reported only once for each function it appears in
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpbe6bk2nf/testfile.c:6:17: note: each undeclared identifier is reported only once for each function it appears in
 
 Header <getopt.h> has symbol "optreset" : NO (cached)
 Using cached compile:
@@ -1963,12 +1963,12 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp5u0xzeqx/testfile.c: In function 'main':
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp5u0xzeqx/testfile.c:6:17: error: 'IPPROTO_MPTCP' undeclared (first use in this function); did you mean 'IPPROTO_MTP'?
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmphbdqmjn2/testfile.c: In function 'main':
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmphbdqmjn2/testfile.c:6:17: error: 'IPPROTO_MPTCP' undeclared (first use in this function); did you mean 'IPPROTO_MTP'?
     6 |                 IPPROTO_MPTCP;
       |                 ^~~~~~~~~~~~~
       |                 IPPROTO_MTP
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp5u0xzeqx/testfile.c:6:17: note: each undeclared identifier is reported only once for each function it appears in
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmphbdqmjn2/testfile.c:6:17: note: each undeclared identifier is reported only once for each function it appears in
 
 Header <netinet/in.h> has symbol "IPPROTO_MPTCP" : NO (cached)
 Using cached compile:
@@ -1984,8 +1984,8 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpb25_k0nm/testfile.c: In function 'bar':
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpb25_k0nm/testfile.c:4:16: error: 'struct sigevent' has no member named 'sigev_notify_thread_id'
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpmps2jucc/testfile.c: In function 'bar':
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpmps2jucc/testfile.c:4:16: error: 'struct sigevent' has no member named 'sigev_notify_thread_id'
     4 |             foo.sigev_notify_thread_id;
       |                ^
 
@@ -2097,10 +2097,10 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp80i8ypdv/testfile.c:9:16: error: conflicting types for 'madvise'
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpqm6e6k34/testfile.c:9:16: error: conflicting types for 'madvise'
     9 |     extern int madvise(int);
       |                ^~~~~~~
-In file included from /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp80i8ypdv/testfile.c:7:
+In file included from /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpqm6e6k34/testfile.c:7:
 /usr/include/x86_64-linux-gnu/sys/mman.h:94:12: note: previous declaration of 'madvise' was here
    94 | extern int madvise (void *__addr, size_t __len, int __advice) __THROW;
       |            ^~~~~~~
@@ -2220,20 +2220,20 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmprqizahsq/testfile.c: In function 'f':
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmprqizahsq/testfile.c:8:48: warning: passing argument 1 of 'pthread_setname_np' makes integer from pointer without a cast [-Wint-conversion]
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp15mt3s6o/testfile.c: In function 'f':
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp15mt3s6o/testfile.c:8:48: warning: passing argument 1 of 'pthread_setname_np' makes integer from pointer without a cast [-Wint-conversion]
     8 |   static void *f(void *p) { pthread_setname_np("QEMU"); return NULL; }
       |                                                ^~~~~~
       |                                                |
       |                                                char *
-In file included from /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmprqizahsq/testfile.c:6:
+In file included from /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp15mt3s6o/testfile.c:6:
 /usr/include/pthread.h:427:42: note: expected 'pthread_t' {aka 'long unsigned int'} but argument is of type 'char *'
   427 | extern int pthread_setname_np (pthread_t __target_thread, const char *__name)
       |                                ~~~~~~~~~~^~~~~~~~~~~~~~~
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmprqizahsq/testfile.c:8:29: error: too few arguments to function 'pthread_setname_np'
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp15mt3s6o/testfile.c:8:29: error: too few arguments to function 'pthread_setname_np'
     8 |   static void *f(void *p) { pthread_setname_np("QEMU"); return NULL; }
       |                             ^~~~~~~~~~~~~~~~~~
-In file included from /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmprqizahsq/testfile.c:6:
+In file included from /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp15mt3s6o/testfile.c:6:
 /usr/include/pthread.h:427:12: note: declared here
   427 | extern int pthread_setname_np (pthread_t __target_thread, const char *__name)
       |            ^~~~~~~~~~~~~~~~~~
@@ -2253,8 +2253,8 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmprkefu735/testfile.c: In function 'main':
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmprkefu735/testfile.c:8:27: warning: null argument where non-null required (argument 2) [-Wnonnull]
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpwc0wd3m6/testfile.c: In function 'main':
+/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpwc0wd3m6/testfile.c:8:27: warning: null argument where non-null required (argument 2) [-Wnonnull]
     8 |   int main(void) { return signalfd(-1, NULL, SFD_CLOEXEC); }
       |                           ^~~~~~~~
 
@@ -2334,7 +2334,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpgs43o_wy/testfile.c:4:14: fatal error: net/netmap.h: No such file or directory
+ /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp5ghuyn8r/testfile.c:4:14: fatal error: net/netmap.h: No such file or directory
     4 |     #include <net/netmap.h>
       |              ^~~~~~~~~~~~~~
 compilation terminated.
@@ -2423,7 +2423,7 @@ Code:
 Cached compiler stdout:
  
 Cached compiler stderr:
- /usr/bin/ld: /tmp/ccdHwogP.o: in function `main':
+ /usr/bin/ld: /tmp/ccMb2QqF.o: in function `main':
 testfile.c:(.text+0x49): undefined reference to `__atomic_load_16'
 /usr/bin/ld: testfile.c:(.text+0x73): undefined reference to `__atomic_store_16'
 /usr/bin/ld: testfile.c:(.text+0x9a): undefined reference to `__atomic_compare_exchange_16'
@@ -2813,16 +2813,10 @@ Called `/usr/bin/pkg-config --modversion capstone` -> 1
 
 Run-time dependency capstone found: NO (tried pkgconfig)
 Configuring capstone-defs.h using configuration
-Pkg-config binary for MachineChoice.HOST is cached.
-Determining dependency 'slirp' with pkg-config executable '/usr/bin/pkg-config'
-env[PKG_CONFIG_PATH]: 
-Called `/usr/bin/pkg-config --modversion slirp` -> 1
-
-Run-time dependency slirp found: NO (tried pkgconfig)
-Configuring libslirp-version.h using configuration
+Dependency slirp found: YES 4.1.0 (cached)
 Running compile:
-Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp_6kefd62
-Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp_6kefd62/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmp_6kefd62/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lfdt -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpbmbb7tiv
+Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpbmbb7tiv/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpbmbb7tiv/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lfdt -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(void) { return 0; }
@@ -2860,7 +2854,7 @@ C compiler for the build machine: cc -m64 -mcx16 (gcc 9.4.0 "cc (Ubuntu 9.4.0-1u
 C linker for the build machine: cc -m64 -mcx16 ld.bfd 2.34
 Dependency threads found: YES unknown (cached)
 Dependency glib-2.0 found: YES 2.64.6 (overridden)
-Build targets in project: 11
+Build targets in project: 10
 Subproject libvhost-user finished.
 
 Program cat found: YES (/usr/bin/cat)
@@ -3124,7 +3118,7 @@ Adding test "qtest-x86_64/test-hmp"
 Adding test "qtest-x86_64/qos-test"
 Program initrd-stress.sh found: YES (/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/tests/migration/initrd-stress.sh)
 Program xgettext found: YES (/usr/bin/xgettext)
-Build targets in project: 543
+Build targets in project: 542
 
 qemu 7.0.0
 
@@ -3260,7 +3254,7 @@ qemu 7.0.0
     GTK support                  : YES
     pixman                       : [1;32mYES[0m [1;36m0.38.4[0m
     VTE support                  : NO
-    slirp support                : internal
+    slirp support                : [1;32mYES[0m [1;36m4.1.0[0m
     libtasn1                     : NO
     PAM                          : NO
     iconv support                : YES
@@ -3320,8 +3314,8 @@ qemu 7.0.0
 
 Found ninja-1.10.0 at /usr/bin/ninja
 Running compile:
-Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpo_5bb9yw
-Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpo_5bb9yw/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpo_5bb9yw/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 --print-search-dirs 
+Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpyg_mvvad
+Command line:  cc -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpyg_mvvad/testfile.c -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpyg_mvvad/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 --print-search-dirs 
 
 Code:
  
@@ -3333,8 +3327,8 @@ libraries: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../
 Compiler stderr:
  
 Running compile:
-Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpaacxuqa3
-Command line:  c++ -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpaacxuqa3/testfile.cpp -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpaacxuqa3/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
+Working directory:  /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpjlubdt4t
+Command line:  c++ -m64 -mcx16 /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpjlubdt4t/testfile.cpp -o /home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/build-femu/meson-private/tmpjlubdt4t/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
 
 Code:
  
