@@ -48,7 +48,7 @@ If you have any problem, Please visit FEMU github. <br>
 https://github.com/vtess/FEMU
  ### 2. Run install script
  ```
- git clone https://github.com/DKU-EmbeddedSystem-Lab/ACE-Analog-Cell-Emulator.git
+ git clone https://github.com/DKU-StarLab/ACE-analog-cell-emulator
 
  cd ACE-Analog-Cell-Emulator
 
