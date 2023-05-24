@@ -15,7 +15,7 @@ You must use <span style="color:red"> GUI </span> environment. This method was r
 
 ```
 
- git clone https://github.com/DKU-StarLab/ACE-analog-cell-emulator
+git clone https://github.com/DKU-StarLab/ACE-analog-cell-emulator
 
 cd ACE-Analog-Cell-Emulator
 
