@@ -14,6 +14,11 @@ ACE is a FEMU-based reliability measurement tool. Analog signals can be output u
 You must use <span style="color:red"> GUI </span> environment. This method was referred to FEMU github. <br>
 
 ```
+
+ git clone https://github.com/DKU-StarLab/ACE-analog-cell-emulator
+
+cd ACE-Analog-Cell-Emulator
+
 mkdir ./images
 
 cd ./ACE-Analog-Cell-Emulator/images
@@ -48,9 +53,6 @@ If you have any problem, Please visit FEMU github. <br>
 https://github.com/vtess/FEMU
  ### 2. Run install script
  ```
- git clone https://github.com/DKU-StarLab/ACE-analog-cell-emulator
-
- cd ACE-Analog-Cell-Emulator
 
  ./ace-install.sh
  ```
