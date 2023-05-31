@@ -14,7 +14,6 @@ ACE is a FEMU-based reliability measurement tool. Analog signals can be output u
 You must use <span style="color:red"> GUI </span> environment. This method was referred to FEMU github. <br>
 
 ```
-
 git clone https://github.com/DKU-StarLab/ACE-analog-cell-emulator
 
 cd ACE-Analog-Cell-Emulator
@@ -53,7 +52,6 @@ If you have any problem, Please visit FEMU github. <br>
 https://github.com/vtess/FEMU
  ### 2. Run install script
  ```
-
  ./ace-install.sh
  ```
  ### 3. Run black-box mode
@@ -74,7 +72,9 @@ https://github.com/vtess/FEMU
 
  ## Either TLC mode or MLC mode can be used in ./ace/nvme.h.
 ```
-in ./ACE/nvme.h
+in ./ACE/nvme.h 
+line 48,49
+
 #define MLC_ERROR 0 // 1: on 2: off
 #define TLC_ERROR 1 // Make sure to use either MLC or TLC
 ```
@@ -82,7 +82,9 @@ in ./ACE/nvme.h
  ## You can check log to ./logging directory
 If you run ACE, you can see log data in the ./logging directory. Log data includes RBER, UBER, and voltage. You can output the desired log by adjusting the UBER_CHK and VOL_CHK options in ./ace/nvme.h.
 ```
-in ./ace/nvme.h
+in ./ace/nvme.h 
+line 51,52
+
 #define UBER_CHK 1 // 1: on 0: off
 #define VOL_CHK 1
 ```
