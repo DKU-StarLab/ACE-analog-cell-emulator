@@ -1,1 +1,0 @@
-/home/lee/Desktop/ACE-Analog-Cell-Emulator/femu/roms/seabios/Makefile

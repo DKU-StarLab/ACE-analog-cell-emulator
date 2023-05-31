@@ -108,11 +108,11 @@ float tlc_read_retry[35]={
 // };
 
 
-double poly1(double a, double b, int x){
+static double poly1(double a, double b, int x){
     return a*x+b;
 }
 
-double poly2(double a, double b, double c ,int x){
+static double poly2(double a, double b, double c ,int x){
     return a*x*x+b*x+c;
 }
 
@@ -284,9 +284,10 @@ static int TLC_check_error(uint64_t state, uint16_t wear_out, uint64_t retention
     double read_cda;
     float wear_out_t;
 
-    wear_out_t = ((float)wear_out+8000)/100;
+    wear_out_t = ((float)wear_out)/100;
 
     /*set voltage*/
+
     voltage = voltage+(wear_out_t-100)*TLC_cell_cda[state]*TLC_init_voltage[3];
 
     /*P/E cycles shift*/
@@ -305,6 +306,7 @@ static int TLC_check_error(uint64_t state, uint16_t wear_out, uint64_t retention
     else{
         voltage = voltage + moving_value*time_cda;
     }
+
  
     /*Read disturbnce modeling[Unit's read count]*/
     moving_value =poly2(TLC_R_a2[state],TLC_R_b2[state],TLC_R_c2[state],read_cnt);
@@ -317,7 +319,7 @@ static int TLC_check_error(uint64_t state, uint16_t wear_out, uint64_t retention
     }
 
     vol[index] = (voltage);
-    // printf("%d %ld %d\n",vol[index],state,index);
+    // printf("%f %ld %d\n",vol[index],state,index);
 
     #if VOL_CHK
         fprintf(voltage_log->fd, "%lf\n",voltage);
@@ -365,7 +367,7 @@ static int TLC_check_error(uint64_t state, uint16_t wear_out, uint64_t retention
 - idx_wear_out: c_location index
 - states: cell encoding values
 - voltage: Pointer to store the voltage value*/
-int TLC_nand_sec_error(uint64_t* buf, int PE_cnt, uint64_t retention_time, int read_cnt, uint8_t *wear_out1, uint8_t *wear_out2,uint64_t idx_wear_out, struct state_bit *states,float *voltage)
+int TLC_nand_sec_error(uint64_t* buf, int PE_cnt, uint64_t retention_time, int read_cnt, uint16_t *wear_out,uint64_t idx_wear_out, struct state_bit *states,float *voltage)
 {
    uint64_t bit_mask = 0x7; 
    uint64_t data;
@@ -373,7 +375,6 @@ int TLC_nand_sec_error(uint64_t* buf, int PE_cnt, uint64_t retention_time, int r
    uint64_t cell_data=0;
    int i=0;
    int index=0;
-   uint16_t temp;
     
     for(int j =0; j < 64; j++){
             bit_mask = 0x7;
@@ -383,8 +384,7 @@ int TLC_nand_sec_error(uint64_t* buf, int PE_cnt, uint64_t retention_time, int r
                 data = (data & bit_mask);
                 data = (data >> (i*3));
                 state=commit_TLC_state(states,data);
-                temp = wear_out1[idx_wear_out] | (wear_out2[idx_wear_out] << 8);
-                state += TLC_check_error(state,temp,retention_time+1,PE_cnt+1,read_cnt+1,voltage,index);
+                state += TLC_check_error(state,wear_out[idx_wear_out],retention_time+1,PE_cnt+1,read_cnt+1,voltage,index);
                 cell_data |= (commit_TLC_data(states, state)<< i*3);
                 bit_mask = bit_mask << 3;
                 i++;

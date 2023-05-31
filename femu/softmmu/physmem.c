@@ -2824,7 +2824,6 @@ static MemTxResult flatview_write_continue(FlatView *fv, hwaddr addr,
             qemu_mutex_unlock_iothread();
             release_lock = false;
         }
-
         len -= l;
         buf += l;
         addr += l;

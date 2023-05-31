@@ -908,10 +908,9 @@ static uint64_t ssd_read(struct ssd *ssd, NvmeRequest *req, FemuCtrl *n)
     if (end_lpn >= spp->tt_pgs) {
         ftl_err("start_lpn=%"PRIu64",tt_pgs=%d\n", start_lpn, ssd->sp.tt_pgs);
     }
-
+    buf = (uint8_t *)(mb + mb_oft);
     /* normal IO read path */
     for (lpn = start_lpn; lpn <= end_lpn; lpn++){
-        buf = (uint8_t *)(mb + mb_oft);
         ppa = get_maptbl_ent(ssd, lpn);
         if (!mapped_ppa(&ppa) || !valid_ppa(ssd, &ppa)) {
             //printf("%s,lpn(%" PRId64 ") not mapped to valid ppa\n", ssd->ssdname, pn);
@@ -972,8 +971,6 @@ static uint64_t ssd_read(struct ssd *ssd, NvmeRequest *req, FemuCtrl *n)
         rcu_read_unlock();
         #endif
 
-        mb_oft += 4096;
-    
         struct nand_cmd srd;
         srd.type = USER_IO;
         srd.cmd = NAND_READ;
@@ -1019,9 +1016,8 @@ static uint64_t ssd_write(struct ssd *ssd, NvmeRequest *req, FemuCtrl *n)
             break;
     }
     //femu_log("%ld %ld\n",req->memory_index,end_lpn-start_lpn);
-
+    buf = (uint8_t *)(mb + mb_oft);
     for (lpn = start_lpn; lpn <= end_lpn; lpn++) {
-        buf = (uint8_t *)(mb + mb_oft);
         ppa = get_maptbl_ent(ssd, lpn);
         if (mapped_ppa(&ppa)) {
             /* update old page information first */
@@ -1130,8 +1126,8 @@ static void *err_TLC_thread(void *arg)
 {
     struct nand_err* meta_data = (struct nand_err*) arg;
     unsigned int errloc[meta_data->secsz];
-    int retry_count=1;
-    int max_retry=3;
+    int retry_count=0;
+    int max_retry=0;
     int ref=0;
     int uber=0;
     
@@ -1181,19 +1177,19 @@ static void *err_MLC_thread(void *arg)
     struct nand_err* meta_data = (struct nand_err*) arg;
     unsigned int errloc[meta_data->secsz];
     int retry_count=0;
-    int max_retry=0;
+    int max_retry=1;
     int ref=0;
     int uber=0;
-
-    rcu_read_lock();
+    
+    rcu_read_lock(); 
     total_rber=MLC_nand_sec_error(meta_data->buf,meta_data->PE_cnt,meta_data->retention_time,meta_data->read_cnt,meta_data->wear_out,meta_data->idx_wear_out,meta_data->states,meta_data->voltage); 
-
-     #if UBER_CHK
+    t_read+=1;
+    #if UBER_CHK
         uber = decode_bch(meta_data->bch,(uint8_t* )(meta_data->buf),meta_data->secsz,meta_data->ecc,NULL,NULL,errloc);
         if(uber == -EBADMSG){
-            ref=0;
-            while((uber == -EBADMSG)){
-                retry_count++;
+            while((uber == -EBADMSG) && retry_count <= max_retry){
+                t_retry+=1;
+                retry_count+=1;
                 read_retry((uint64_t *)meta_data->buf,meta_data->voltage,meta_data->states,retry_count,ref);
                 uber = decode_bch(meta_data->bch,(uint8_t* )(meta_data->buf),meta_data->secsz,meta_data->ecc,NULL,NULL,errloc);
                 if(uber != -EBADMSG){
@@ -1201,11 +1197,11 @@ static void *err_MLC_thread(void *arg)
                     break;
                 }
                 if((retry_count == max_retry)){
-                    if(ref==3)
+                    if(ref==1){
                         break;
-
+                    }
                     ref+=1;
-                    retry_count = 0;
+                    retry_count = 1;
                 }
             }
             ref = 0;
@@ -1217,11 +1213,10 @@ static void *err_MLC_thread(void *arg)
         else{
             total_ecc_uber += uber; 
         } 
-    #endif
-
-    // rcu_read_lock();
+    #endif 
+    // rcu_read_lock(); 
     t_err++;
     rcu_read_unlock();
-
+    qemu_thread_exit(NULL); 
     return NULL;
 }
