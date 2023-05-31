@@ -8,7 +8,7 @@
 IMGDIR=./images
 
 # Virtual machine disk image
-OSIMGF=$IMGDIR/u20s.qcow2
+OSIMGF=$IMGDIR/femu.qcow2
 
 rm -rf ./logging
 mkdir ./logging
