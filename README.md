@@ -5,7 +5,6 @@
 ACE is a FEMU-based reliability measurement tool. Analog signals can be output using ACE. ACE is an emulator designed to generate errors similar to real SSDs. Gaussian distribution graph values ​​are assigned to each cell to simulate analog signal distribution in actual cells. It is necessary to model changes in the distribution graph to trigger errors. We modeled the parameters using polynomial regression, one of the machine learning techniques. The modeled parameters change the distribution graph according to the P/E cycle, write time, and read count, resulting in durability, retention, and disturbance error. These errors are similar to those that occur on real hardware. ACE functions are implemented in ./ace/error.
 
 ## How to install ACE?
-## How to install ACE?
 
 1. Install VM image
 2. Run install-script
