@@ -1,4 +1,3 @@
-//this file is ace header8
 
 #ifndef ACE
 #define ACE
