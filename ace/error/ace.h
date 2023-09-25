@@ -1,4 +1,4 @@
-//this file is ace header5
+//this file is ace header32
 #ifndef ACE
 #define ACE
 
